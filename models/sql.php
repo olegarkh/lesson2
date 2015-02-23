@@ -54,8 +54,8 @@ function toDB($id, $dir, $filename, $comment, $visited){
 }
 
 function record_toDB($article){
-    $query = "INSERT INTO articles ( pub_date, title, preview, text )
-                        VALUES('$article->date', '$article->title', '$article->preview ', '$article->text')";
+    $query = "INSERT INTO articles ( a_type, pub_date, title, preview, text )
+                        VALUES('$article->type','$article->date', '$article->title', '$article->preview ', '$article->text')";
     if ($res = mysql_query($query)){
         return true;
     }
@@ -63,7 +63,8 @@ function record_toDB($article){
 }
 
 function update_record($article){
-    $query = "UPDATE articles SET pub_date = '$article->date',
+    $query = "UPDATE articles SET   a_type = '$article->type',
+                                  pub_date = '$article->date',
                                      title = '$article->title',
                                    preview = '$article->preview',
                                       text = '$article->text' WHERE id = '$article->id' ";
