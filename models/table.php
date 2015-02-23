@@ -36,11 +36,6 @@ class Table{
       $query = "DELETE FROM $this->name WHERE id='$id' ";
       return mysql_query($query);
   }
-  /*public function Show($table){
-      $items = $this->getAll($table);
-      //echo 'DIR : '.__DIR__."<br>";
-      include __DIR__ . '\..\views\list.php';
-  }*/
   public function Close(){
       Disconnection();
   }
