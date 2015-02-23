@@ -15,8 +15,9 @@ class Table{
       $query = "SELECT * FROM $this->name ORDER BY id DESC";
       return get_record($query);
   }
-  public function getAll(){
-      $query = "SELECT * FROM $this->name ORDER BY pub_date DESC";
+  public function getAll($type){
+      //$type = 'news';
+      $query = "SELECT * FROM $this->name WHERE a_type='$type' ORDER BY pub_date DESC";
       return sql_Query($query);
   }
 
